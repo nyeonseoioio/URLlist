@@ -1,3 +1,14 @@
-<h3>TITLE : {{object.title}}</h3>
+{% extends 'base.html' %}
 
+{% load static %}
+
+{% block title %}북마크{% endblock %}
+
+{% block content %}
+
+<br>
+<h3> Title : {{object.title}}</h3>
+<br>
 <h5>URL : <a href="{{object.url}}"> {{object.url}}   </a> </h5>
+
+{% endblock %}

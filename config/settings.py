@@ -39,9 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'bookmark.apps.BookmarkConfig',
     'blog',
+    # 새로 입력
     'taggit.apps.TaggitAppConfig',
     'taggit_templatetags2',
     'photo',
+    'widget_tweaks',
 ]
 
 MIDDLEWARE = [
@@ -78,6 +80,13 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'NAME': BASE_DIR/'db.sqlite3'
+#     }
+# }
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -88,7 +97,6 @@ DATABASES = {
         'PORT': '5432',       # PostgreSQL의 기본 포트 번호
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
@@ -136,11 +144,13 @@ import os
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media') # BASE_DIR/'media'
 
-TAGGIT_CASE_INSENSITIVE =True
-TAGGIT_LIMIT = 50
+TAGGIT_CASE_INSENSITIVE=True
+TAGGIT_LIMIT=50
 
+# DISQUS 설정
+DISQUS_SHORTNAME = 'lion-django-tutorial-3'
+DISQUS_MY_DOMAIN = 'http://127.0.0.1:8000'
 
-DISQUS_SHORTNAME = 'hyeonseo-home'
-DISQUS_MY_DOMAIN = 'http://127.0.0.1'
-
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL='/'
+# LOGIN_URL
+LOGOUT_REDIRECT_URL='/'
